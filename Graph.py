@@ -10,8 +10,6 @@ for i in range(ne):
     edge=tuple(input("enter an edge").split())
     edges.append(edge)
 
-    ]['LKJN C '
-    =-6' B=']
 print(edges)
 inc_mat=[[0]*ne for i in range(nv)]
 for e in edges:
