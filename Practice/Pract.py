@@ -1,19 +1,20 @@
-arr=[1,2,3,4,5,6,7,8,9]
-target=int(input("Enter the"))
-def binarysearch(arr,target):
-    low=0
-    high=len(arr)-1
-    while low<=high:
-        mid=(low+high)//2
-        if arr[mid]==target:
-            return 1
-        elif arr[mid]<target:
-            low=mid+1
+#roman to int
+def romantoint(s):
+    m={
+        'I':1,
+        'V':5,
+        'X':10,
+        'L':50,
+        'C':100,
+        'D':500,
+        'M':1000,
+    }
+    ans=0
+    for i in range(len(s)):
+        if i<len(s)-1 and m[s[i]]<m[s[i+1]]:
+            ans -= m[s[i]]
         else:
-            high=mid-1
-    return -1
-result=binarysearch(arr,target)
-if result!=-1:
-    print("found")
-else:
-    print("not found")
+            ans += m[s[i]]
+    return ans
+s=input("Enter roman number")
+print(romantoint(s))
