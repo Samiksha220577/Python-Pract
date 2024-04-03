@@ -1,1 +1,5 @@
-import networkx as nx
+x=int(input())
+
+
+[int(i) for i in str(x)]
+return
