@@ -1,7 +1,7 @@
 inp=input("Enter number")
 nums=inp.split()
 list = [int(num) for num in nums]
-print(list)
+# print(list)
 
 
 
@@ -11,7 +11,7 @@ for i in list:
     s+=str(i)#in string 1+2=12
 x=int(s)
 z=x+1
-print(z)
+# print(z)
 
 
 dig=[]

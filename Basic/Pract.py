@@ -1,5 +1,3 @@
-x=int(input())
-
-
-[int(i) for i in str(x)]
-return
+n=5
+for i in range(n):
+    print(i)

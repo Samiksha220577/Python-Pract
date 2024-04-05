@@ -39,3 +39,19 @@ for i in range(x):
 print("sum of matrix is:")
 for r in sum:
     print(r)
+
+
+
+
+# # 2.1 add two matrices
+# X= [list(map(int, i.split())) for i in input().split(',')]
+# Y = [list(map(int, i.split())) for i in input().split(',')]
+#
+#
+# result = [[0]*3 for i in range(len(X))]
+# print(result)
+# for i in range(len(Y)):
+#     for j in range(len(Y[0])):
+#         result[i][j] = X[i][j] + Y[i][j]
+# for k in result:
+#     print(k)
