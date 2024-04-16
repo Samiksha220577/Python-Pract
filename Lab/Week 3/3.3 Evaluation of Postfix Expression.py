@@ -16,3 +16,4 @@ for i in exp:
         elif i =='/':
             stack.append(n/num)
 print(stack[0])
+print(stack)
