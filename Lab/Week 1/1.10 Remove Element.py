@@ -10,15 +10,25 @@
 
 
 
-num=list(map(int,input().split()))
+# num=list(map(int,input().split()))
+# val=int(input())
+# l1=[]
+# l2=[]
+# l3=[]
+# for i in range(len(num)):
+#     if num[i]==val:
+#         l2.append("_")
+#     else:
+#         l1.append(num[i])
+# l3=l1+l2
+# print(str(len(l1)))
+
+# -----------------------------------------------
+nums=list(map(int,input().split(',')))
 val=int(input())
-l1=[]
-l2=[]
-l3=[]
-for i in range(len(num)):
-    if num[i]==val:
-        l2.append("_")
-    else:
-        l1.append(num[i])
-l3=l1+l2
-print(str(len(l1)))
+index=0
+for i in range(len(nums)):
+    if (nums[i]!=val):
+        nums[index]=nums[i]
+        index+=1
+print(index)

@@ -51,15 +51,16 @@
 # string = "((()"
 # print(string,"-",check(string))
 # ------------------------------------------------
-exp=input()
-stack=[]
-for i in exp:
-    if i in '{([' or not stack:
-        stack.append(i)
-
-    else:
-        if (i==')'and stack[-1]=='(')or(i==']' and stack[-1]=='[')or(i=='}' and stack[-1]=='{'):
-            stack.pop()
-
-
-print('unbalanced') if stack else print('balanced')
+# exp=input()
+# stack=[]
+# for i in exp:
+#     if i in '{([' or not stack:
+#         stack.append(i)
+#
+#     else:
+#         if (i==')'and stack[-1]=='(')or(i==']' and stack[-1]=='[')or(i=='}' and stack[-1]=='{'):
+#             stack.pop()
+#
+#
+# print('unbalanced') if stack else print('balanced')
+# ----------------------------------------------------

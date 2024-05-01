@@ -56,11 +56,37 @@
 # for k in list:
 #     print(k)
 # --------------------------
-class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
-        n = len(nums)
-        for i in range(n - 1):
-            for j in range(i + 1, n):
-                if nums[i] + nums[j] == target:
-                    return [i, j]
-        return []  # No solution found
+# class Solution:
+#     def twoSum(self, nums: list[int], target: int) -> list[int]:
+#         n = len(nums)
+#         for i in range(n - 1):
+#             for j in range(i + 1, n):
+#                 if nums[i] + nums[j] == target:
+#                     return [i, j]
+#         return []  # No solution found
+# -------------------------------------------------------
+# reinprep
+# class TwoSum:
+#     def __init__(self, list1, target):
+#         self.list1 = list1
+#         self.target = target
+#
+#     def solution(self):
+#         length = len(list1)
+#
+#         for i in range(length - 1):
+#             for j in range(i + 1, length):
+#                 if list1[i] + list1[j] == self.target:
+#                     new_list = i, j
+#                     return list(new_list)
+#         return -1
+#
+#
+# list1 = list(map(int, input().split(',')))
+# target = int(input())
+# obj = TwoSum(list1, target)
+# # print(obj.solution())
+#
+# # list1 = [1, 2, 3, 4, 5]
+# print(*obj.solution(), sep=", ")
+# -------------------------------------------------
