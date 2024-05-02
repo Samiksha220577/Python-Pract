@@ -57,16 +57,16 @@
 # for k in result:
 #     print(k)
 # -------------------------------------------------
-n1=int(input('enter range'))
-m1=[]
-for i in range(n1):
-    k=[int(i) for i in input('enter matrix').split(',')]
-    m1.append(k)
-n2=int(input('enter range 2'))
-m2=[]
-for i in range(n2):
-    k=[int(i) for i in input('enter matrix 2').split(',')]
-    m2.append(k)
-add=[[m1[i][j] + m2[i][j] for j in range(n1)]for i in range(n1)]
-for i in add:
-    print(*i,sep=', ')
+# n1=int(input('enter range'))
+# m1=[]
+# for i in range(n1):
+#     k=[int(i) for i in input('enter matrix').split(',')]
+#     m1.append(k)
+# n2=int(input('enter range 2'))
+# m2=[]
+# for i in range(n2):
+#     k=[int(i) for i in input('enter matrix 2').split(',')]
+#     m2.append(k)
+# add=[[m1[i][j] + m2[i][j] for j in range(n1)]for i in range(n1)]
+# for i in add:
+#     print(*i,sep=', ')

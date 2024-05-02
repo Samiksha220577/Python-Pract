@@ -103,3 +103,26 @@ for i in exp:
         elif i == '/':
             stack.append(n / num)
 print(round((stack[0]),1))
+# -----------------------------------------------v
+num=list(input().split())
+stack=[]
+for i in num:
+    if i=='*':
+        a=stack.pop()
+        b=stack.pop()
+        stack.append(b*a)
+    elif i=='+':
+        a=stack.pop()
+        b=stack.pop()
+        stack.append(b+a)
+    elif i=='-':
+        a=stack.pop()
+        b=stack.pop()
+        stack.append(b-a)
+    elif i=='/':
+        a=stack.pop()
+        b=stack.pop()
+        stack.append(b/a)
+    else:
+        stack.append(int(i))
+print(stack.pop())
