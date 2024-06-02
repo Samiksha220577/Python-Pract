@@ -1,14 +1,19 @@
 front = 0
 rear = 0
-mymax=int(input())
+
+# Get the maximum size of the queue from the user
+mymax = int(input())
+
 
 # Function to create a queue
 def createQueue():
     return []  # empty list
 
+
 # Function to check if the queue is empty
 def isEmpty(queue):
     return len(queue) == 0
+
 
 # Function to add an element to the queue
 def add(queue, item):
@@ -18,6 +23,12 @@ def add(queue, item):
         rear += 1
     else:
         print("Queue is full")
+
+
+def size(queue):
+    x = len(queue)
+    print(x)
+
 
 # Function to remove an element from the queue
 def dequeue(queue):
@@ -29,43 +40,56 @@ def dequeue(queue):
         front += 1
         return item
 
+
 # Function to display the queue
-def print(queue):
+def display(queue):
     if isEmpty(queue):
         print("Queue is empty")
-    else:print(queue[::-1])
+    else:
+        print(*queue, sep=' ')
+        # print(queue[0::])
         # print("Queue elements are:")
         # for i in range(front, rear):
         #     print(queue[i])
-def size(queue):
-    size = 0
-    for element in queue:
-        size += 1
 
-    print(size)
-    # listsize = len(queue)
-    # print(listsize)
+
 # Driver code
 queue = createQueue()
-while True:
-    print("1.add")
-    print("2.Dequeue")
-    print("3.print")
-    print("4.size")
-    print("5.Quit")
-    choice = int(input("Enter your choice: "))
-    if choice == 1:
-        item = int(input("Enter the element to be inserted: "))
+
+values = input()
+cmd = values.split(",")
+# print('List : ', cmd)
+# print(cmd)
+
+val = input()
+inp = val.split(",")
+# print('List : ', cmd)
+# print(inp)
+
+queue = createQueue()  # Create an empty queue
+
+i=0
+while i < mymax:
+    # print('index',i)
+    elem = cmd[i]
+    # print('elem',elem)
+
+
+# print('end loop 1')
+
+# for elem in cmd:
+#     # print (cmd.index(elem))
+    if elem == "add":
+        # print(inp[i])
+        item = inp[i]
         add(queue, item)
-    elif choice == 2:
+    elif elem == "size":
+        print(len(queue))
+    elif elem == "dequeue":
         dequeued_item = dequeue(queue)
-        if dequeued_item is not None:
-            print(f"Dequeued element is {dequeued_item}")
-    elif choice == 3:
-        print(queue)
-    elif choice == 4:
-        size(queue)
-    elif choice == 5:
-        break
+
+    elif elem == "print":
+        display(queue)
     else:
-        print("Invalid choice")
+        print("Invalid command")
+    i = i + 1
