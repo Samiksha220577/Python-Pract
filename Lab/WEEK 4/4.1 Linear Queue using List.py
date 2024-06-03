@@ -278,7 +278,7 @@ inp = val.split(",")
 # print('List : ', cmd)
 # print(inp)
 
-queue = createQueue()  # Create an empty queue
+# queue = createQueue()  # Create an empty queue
 
 i=0
 while i < mymax:
@@ -305,3 +305,78 @@ while i < mymax:
     else:
         print("Invalid command")
     i = i + 1
+
+
+# ------------------------------------------------------
+front = 0
+rear = 0
+mymax = int(input())
+def createQueue():
+    return []
+def isEmpty(queue):
+    return len(queue) == 0
+def add(queue, item):
+    global rear
+    if rear < mymax:
+        queue.append(item)
+        rear += 1
+    else:
+        print("Queue is full")
+def size(queue):
+    x = len(queue)
+    print(x)
+def dequeue(queue):
+    global front
+    if isEmpty(queue):
+        print("Queue is empty")
+    else:
+        item = queue.pop(0)
+        front += 1
+        return item
+def display(queue):
+    if isEmpty(queue):
+        print("Queue is empty")
+    else:
+        print(*queue, sep=' ')
+queue = createQueue()
+
+values = input()
+cmd = values.split(",")
+val = input()
+inp = val.split(",")
+queue = createQueue()
+i=0
+while i < mymax:
+    elem = cmd[i]
+    if elem == "add":
+        item = inp[i]
+        add(queue, item)
+    elif elem == "size":
+        print(len(queue))
+    elif elem == "dequeue":
+        dequeued_item = dequeue(queue)
+
+    elif elem == "print":
+        display(queue)
+    else:
+        print("Invalid command")
+    i = i + 1
+
+# ----------------------------------------------------------------------
+length=int(input())
+ope=list(map(str, input().split(', ')))
+num=list(map(str, input().split(', ')))
+list1=[]
+for i in range(len(ope)):
+    if ope[i]=='add':
+        if (len(list1)==length):
+            print('queue is full')
+        else:
+            list1.append(num[i])
+    elif ope[i]=='size':
+        print(len(list1))
+    elif ope[i]=='dequeue':
+        list1.pop(0)
+    elif ope[i]=='print':
+        for j in list1:
+            print(j, end=' ')

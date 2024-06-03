@@ -127,3 +127,24 @@ while True:
         break
     else:
         print("Invalid choice")
+# ---------------------------------------------------
+length=int(input())
+ope=list(map(str, input().split(', ')))
+num=list(map(str, input().split(', ')))
+list1=[]
+for i in range(len(ope)):
+    if ope[i]=='add':
+        if (len(list1)==length):
+            print('queue is full')
+        else:
+            list1.append(num[i])
+    elif ope[i]=='size':
+        print(len(list1))
+    elif ope[i]=='pop':
+        list1.pop()
+    elif ope[i]=='print':
+        z=[]
+        for i in range(len(list1)):
+            z.append(list1.pop())
+        for j in z:
+            print(j,end=' ')
