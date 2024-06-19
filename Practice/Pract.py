@@ -1,28 +1,33 @@
-def count_triangles(adj_matrix):
-    n = len(adj_matrix)
-    count = 0
+import heapq
+nv,ne = map(int,input().split(', '))
+edges = []
+for i in range(ne):
+    edge = tuple(map(int,input().split(', ')))
+    edges.append(edge)
+adj_list = {v:[] for v in range(nv)}
+for w, v1, v2 in edges:
+    adj_list[v1].append((w,v2))
+    adj_list[v2].append((w,v1))
 
-    # Calculate A^3 (matrix multiplication)
-    A3 = [[0] * n for _ in range(n)]
-    for i in range(n):
-        for j in range(n):
-            for k in range(n):
-                A3[i][j] += adj_matrix[i][k] * adj_matrix[k][j]
+start = 0
+mst = prim(adj_list, start)
+tot = 0
+for e in mst:
+    tot += e[0]
+print(tot)
 
-    # Count triangles
-    for i in range(n):
-        count += A3[i][i] // 2  # Each triangle is counted 6 times
 
-    return count
+def prim(adj_list, start):
+    mst = []
+    visited = set()
+    heap = [(0, start)]
 
-# Example usage
-edges = [(1, 2), (2, 3), (3, 1), (4, 5), (5, 6), (6, 4)]
-n = 6
-adj_matrix = [[0] * n for _ in range(n)]
-
-for u, v in edges:
-    adj_matrix[u - 1][v - 1] = 1
-    adj_matrix[v - 1][u - 1] = 1
-
-triangles = count_triangles(adj_matrix)
-print(f"Number of triangles: {triangles}")
+    while heap:
+        w, d = heapq.heappop(heap)
+        if d not in visited:
+            visited.add(d)
+            mst.append((w,d))
+            for w, n in adj_list[d]:
+                if n not in visited:
+                    heapq.heappush(heap,(w,n))
+    return mst
