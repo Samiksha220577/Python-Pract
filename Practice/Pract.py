@@ -1,24 +1,28 @@
-import random
 
-def play_game():
-    choices = ["Rock", "Paper", "Scissors"]
-    computer_choice = random.choice(choices)
+class A:
+    def feature1(self):
+        print("Feature 1 working")
 
-    user_choice = input("Enter your choice (Rock, Paper, Scissors): ").capitalize()
+    def feature2(self):
+        print("Feature 2 working")
 
-    while user_choice not in choices:
-        user_choice = input("Invalid choice. Enter your choice (Rock, Paper, Scissors): ").capitalize()
+class B:
+    def feature3(self):
+        print("Feature 3 working")
 
-    print(f"\nComputer chose: {computer_choice}")
-    print(f"You chose: {user_choice}\n")
+    def feature4(self):
+        print("Feature 4 working")
 
-    if user_choice == computer_choice:
-        print("It's a tie!")
-    elif (user_choice == "Rock" and computer_choice == "Scissors") or \
-         (user_choice == "Scissors" and computer_choice == "Paper") or \
-         (user_choice == "Paper" and computer_choice == "Rock"):
-        print("You win!")
-    else:
-        print("Computer wins!")
+class C(A,B):
+    def feature5(self):
+        print("Feature 5 working")
 
-play_game()
+
+a1 = A()
+
+a1.feature1()
+a1.feature2()
+
+b1 = B()
+
+c1 = C()
