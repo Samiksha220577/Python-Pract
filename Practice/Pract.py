@@ -1,28 +1,47 @@
+#
+# a = '5'
+# b = '6'
+#
+# print(a + b)
+#
+# print(str.__add__(a,b))
 
-class A:
-    def feature1(self):
-        print("Feature 1 working")
+class Student:
 
-    def feature2(self):
-        print("Feature 2 working")
+    def __init__(self,m1,m2):
+        self.m1 = m1
+        self.m2 = m2
 
-class B:
-    def feature3(self):
-        print("Feature 3 working")
+    def __add__(self, other):
+        m1 = self.m1 + other.m1
+        m2 = self.m2 + other.m2
+        s3 = Student(m1,m2)
 
-    def feature4(self):
-        print("Feature 4 working")
+        return  s3
 
-class C(A,B):
-    def feature5(self):
-        print("Feature 5 working")
+    def __gt__(self, other):
+        r1 = self.m1 + self.m2
+        r2 = other.m1 + other.m2
+        if r1 > r2:
+            return True
+        else:
+            return False
+
+    def __str__(self):
+        return '{} {}'.format( self.m1,self.m2)
 
 
-a1 = A()
+s1 = Student(58,69)
+s2 = Student(69,65)
 
-a1.feature1()
-a1.feature2()
+s3 = s1 + s2
 
-b1 = B()
+if s1 > s2:
+    print("s1 wins")
+else:
+    print("s2 wins")
 
-c1 = C()
+a = 9
+print(a.__str__())
+
+print(s2)
