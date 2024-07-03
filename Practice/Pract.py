@@ -1,47 +1,23 @@
-#
-# a = '5'
-# b = '6'
-#
-# print(a + b)
-#
-# print(str.__add__(a,b))
+# importing library sympy
+from sympy import symbols, Eq, solve
 
-class Student:
+# defining symbols used in equations
+# or unknown variables
+x, y, z = symbols('x,y,z')
 
-    def __init__(self,m1,m2):
-        self.m1 = m1
-        self.m2 = m2
+# defining equations
+eq1 = Eq((x+y+z), 1)
+print("Equation 1:")
+print(eq1)
 
-    def __add__(self, other):
-        m1 = self.m1 + other.m1
-        m2 = self.m2 + other.m2
-        s3 = Student(m1,m2)
+eq2 = Eq((x-y+2*z), 1)
+print("Equation 2")
+print(eq2)
 
-        return  s3
+eq3 = Eq((2*x-y+2*z), 1)
+print("Equation 3")
 
-    def __gt__(self, other):
-        r1 = self.m1 + self.m2
-        r2 = other.m1 + other.m2
-        if r1 > r2:
-            return True
-        else:
-            return False
-
-    def __str__(self):
-        return '{} {}'.format( self.m1,self.m2)
-
-
-s1 = Student(58,69)
-s2 = Student(69,65)
-
-s3 = s1 + s2
-
-if s1 > s2:
-    print("s1 wins")
-else:
-    print("s2 wins")
-
-a = 9
-print(a.__str__())
-
-print(s2)
+# solving the equation and printing the
+# value of unknown variables
+print("Values of 3 unknown variable are as follows:")
+print(solve((eq1, eq2, eq3), (x, y, z)))
