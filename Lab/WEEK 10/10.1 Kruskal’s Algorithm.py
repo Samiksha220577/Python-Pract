@@ -1,6 +1,6 @@
 v,ne = map(int, input().split(', '))
 vrt = []
-ed = []
+ed =  []
 for x in range(v):
     vrt.append(x)
 for x in range(ne):

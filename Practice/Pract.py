@@ -1,23 +1,45 @@
-# importing library sympy
-from sympy import symbols, Eq, solve
-
-# defining symbols used in equations
-# or unknown variables
-x, y, z = symbols('x,y,z')
-
-# defining equations
-eq1 = Eq((x+y+z), 1)
-print("Equation 1:")
-print(eq1)
-
-eq2 = Eq((x-y+2*z), 1)
-print("Equation 2")
-print(eq2)
-
-eq3 = Eq((2*x-y+2*z), 1)
-print("Equation 3")
-
-# solving the equation and printing the
-# value of unknown variables
-print("Values of 3 unknown variable are as follows:")
-print(solve((eq1, eq2, eq3), (x, y, z)))
+v,ne = map(int, input().split(', '))
+vrt = []
+ed = []
+for x in range(v):
+    vrt.append(x)
+for x in range(ne):
+    a,b,c = tuple(map(int, input().split(',')))
+    ed.append((a,b,c))
+mp={}
+for x in range(v):
+    mp[x]=x
+wp={}
+for a,b,c in ed:
+    wp[b,c]=a
+w=[]
+for x in wp.values():
+    w.append(x)
+w.sort()
+vis=[]
+for x in w:
+    c=0
+    q=0
+    for y in wp.items():
+        i,j=y
+        v1,v2=i
+        if x==j:
+            if mp[v1]!=mp[v2]:
+                if i not in vis:
+                    vis.append(i)
+                for z in mp.items():
+                    k,l=z
+                    if q==0:
+                        a=mp[v2]
+                        q+=1
+                    if  l==a:
+                        mp[k]=mp[v1]
+                        c+=1
+        if c!=0:
+            break
+min_cost=0
+for x in vis:
+    for i,j in wp.items():
+        if x==i:
+            min_cost+=j
+print(min_cost)

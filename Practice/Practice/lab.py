@@ -1,10 +1,50 @@
-v, e = map(int, input("Enter number of vertices and edges (separated by comma): ").split(','))
-print(v,e)
-
-input_list = []
-for i in range(e):
-    x = list(map(int, input("Enter edge details (cost, vertex1, vertex2) separated by space: ").split(',')))
-    input_list.append(x)
-
-for i in range(len(input_list)):
-    print(input_list[i])
+v,ne = map(int, input().split(', '))
+vrt = []
+ed = []
+for x in range(v):
+    vrt.append(x)
+for x in range(ne):
+    a,b,c = tuple(map(int, input().split(',')))
+    ed.append((a,b,c))
+mp={}
+for x in range(v):
+    mp[x]=x
+print(mp)
+wp={}
+for a,b,c in ed:
+    wp[b,c]=a
+print(wp)
+w=[]
+for x in wp.values():
+    w.append(x)
+w.sort()
+# print(w)
+vis=[]
+for x in w:
+    c=0
+    q=0
+    for y in wp.items():
+        print (y)
+        i,j=y
+        v1,v2=i
+        if x==j:
+            if mp[v1]!=mp[v2]:
+                if i not in vis:
+                    vis.append(i)
+                for z in mp.items():
+                    print(z)
+                    k,l=z
+                    if q==0:
+                        a=mp[v2]
+                        q+=1
+                    if  l==a:
+                        mp[k]=mp[v1]
+                        c+=1
+        if c!=0:
+            break
+min_cost=0
+for x in vis:
+    for i,j in wp.items():
+        if x==i:
+            min_cost+=j
+print(min_cost)
