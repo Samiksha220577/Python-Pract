@@ -140,6 +140,7 @@ while x>0:
         x=x-1
         # print (x)
         count+=1
+
     else:
         x=x//2
         count+=1
